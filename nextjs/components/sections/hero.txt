@@ -1,0 +1,17 @@
+type HeroProps = {
+  title: string;
+  subtitle?: string;
+};
+
+export default function Hero({ title, subtitle }: HeroProps) {
+  return (
+    <section className="py-20 text-center">
+      <h1 className="text-4xl font-bold">{title}</h1>
+      {subtitle && (
+        <p className="mt-4 text-lg text-gray-600">
+          {subtitle}
+        </p>
+      )}
+    </section>
+  );
+}
