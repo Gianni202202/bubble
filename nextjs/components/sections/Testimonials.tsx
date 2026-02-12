@@ -1,79 +1,44 @@
 "use client";
-import { useEffect, useRef } from "react";
 
 const testimonials = [
-  {
-    quote: "Elvatix heeft onze outreach compleet veranderd. We besparen minstens 2 uur per dag per recruiter.",
-    name: "Lisa van den Berg",
-    role: "Head of Recruitment, Vibe Group",
-  },
-  {
-    quote: "De AI-gegenereerde berichten voelen persoonlijker dan wat we ooit handmatig schreven.",
-    name: "Mark de Vries",
-    role: "Senior Recruiter, Manpower",
-  },
-  {
-    quote: "Onze response rate is met 40% gestegen sinds we Elvatix gebruiken. Het is een game-changer.",
-    name: "Sarah Jansen",
-    role: "Talent Acquisition Lead",
-  },
+  { quote: "Elvatix heeft onze outreach compleet veranderd. We besparen minstens 2 uur per dag per recruiter.", name: "Lisa van den Berg", role: "Head of Recruitment, Vibe Group" },
+  { quote: "De AI-gegenereerde berichten voelen persoonlijker dan wat we ooit handmatig schreven.", name: "Mark de Vries", role: "Senior Recruiter, Manpower" },
+  { quote: "Onze response rate is met 40% gestegen sinds we Elvatix gebruiken. Het is een game-changer.", name: "Sarah Jansen", role: "Talent Acquisition Lead" },
 ];
 
 const badges = [
-  "⭐ Highest Rated",
-  "🏆 Best ROI 2025",
-  "🚀 Fastest Growing",
-  "💙 Most Loved",
+  { icon: "⭐", label: "Highest Rated" },
+  { icon: "🏆", label: "Best ROI 2025" },
+  { icon: "🚀", label: "Fastest Growing" },
+  { icon: "💚", label: "Most Loved" },
 ];
 
 export default function Testimonials() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("visible");
-      }),
-      { threshold: 0.05, rootMargin: "0px 0px -50px 0px" }
-    );
-    const els = ref.current?.querySelectorAll(".fade-in-up");
-    els?.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-black text-center italic mb-16" style={{ opacity: 1 }}>
+    <section style={{ padding: "80px 24px", background: "#fff" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, fontStyle: "italic", textAlign: "center", marginBottom: 48, color: "#111" }}>
           Wat onze klanten zeggen
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24, marginBottom: 48 }}>
           {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
-              style={{ opacity: 1, transform: "none" }}
-            >
-              <p className="text-purple-600 text-lg font-medium leading-relaxed mb-6">
+            <div key={i} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 20, padding: 32 }}>
+              <p style={{ fontSize: 16, color: "#6366f1", lineHeight: 1.6, marginBottom: 20, fontWeight: 500 }}>
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div>
-                <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
-                <p className="text-gray-500 text-sm">{t.role}</p>
-              </div>
+              <p style={{ fontWeight: 700, fontSize: 15, color: "#111" }}>{t.name}</p>
+              <p style={{ fontSize: 13, color: "#9ca3af" }}>{t.role}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6" style={{ opacity: 1 }}>
-          {badges.map((badge, i) => (
-            <span
-              key={i}
-              className="px-5 py-2.5 bg-gray-50 rounded-xl border border-gray-100 text-sm font-medium text-gray-700"
-            >
-              {badge}
-            </span>
+        <div style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
+          {badges.map((b, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontSize: 20 }}>{b.icon}</span>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "#6b7280" }}>{b.label}</span>
+            </div>
           ))}
         </div>
       </div>

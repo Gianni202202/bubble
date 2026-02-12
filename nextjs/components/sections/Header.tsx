@@ -1,55 +1,36 @@
 "use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+
+const navLinks = [
+  { label: "Platform", href: "/platform" },
+  { label: "Oplossingen", href: "/solutions" },
+  { label: "Case Studies", href: "/cases" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Inloggen", href: "/login" },
+];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className="navbar-floating"
-      style={{
-        boxShadow: scrolled
-          ? "0 8px 40px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.06)"
-          : "0 4px 30px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05)",
-      }}
-    >
-      <nav className="flex items-center justify-between gap-8">
-        <Link href="/" className="text-xl font-extrabold text-gray-900 tracking-tight">
+    <header className="navbar-floating">
+      <nav style={{ display: "flex", alignItems: "center", gap: 32 }}>
+        <a href="/" style={{ fontSize: 18, fontWeight: 800, color: "#111", textDecoration: "none", marginRight: 16 }}>
           Elvatix
-        </Link>
+        </a>
 
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/platform" className="text-sm text-gray-700 hover:text-gray-900 font-medium transition">
-            Platform
-          </Link>
-          <Link href="/solutions" className="text-sm text-gray-700 hover:text-gray-900 font-medium transition">
-            Oplossingen
-          </Link>
-          <Link href="/case-studies" className="text-sm text-gray-700 hover:text-gray-900 font-medium transition">
-            Case Studies
-          </Link>
-          <Link href="/pricing" className="text-sm text-gray-700 hover:text-gray-900 font-medium transition">
-            Pricing
-          </Link>
+        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+          {navLinks.map((link) => (
+            <a key={link.label} href={link.href} style={{ fontSize: 14, fontWeight: 500, color: "#374151", textDecoration: "none" }}>
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        <div className="flex items-center gap-3">
-          <Link href="/login" className="text-sm text-gray-700 hover:text-gray-900 font-medium transition hidden sm:block">
-            Inloggen
-          </Link>
-          <Link href="/start" className="pill-btn pill-btn-outline text-xs hidden sm:inline-flex">
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginLeft: "auto" }}>
+          <a href="/start" className="pill-btn pill-btn-outline" style={{ padding: "8px 20px", fontSize: 13 }}>
             Start gratis
-          </Link>
-          <Link href="/demo" className="pill-btn pill-btn-primary text-xs">
+          </a>
+          <a href="/demo" className="pill-btn pill-btn-primary" style={{ padding: "8px 20px", fontSize: 13 }}>
             Boek een demo
-          </Link>
+          </a>
         </div>
       </nav>
     </header>

@@ -8,15 +8,17 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="stats-bg py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="stats-card">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <section style={{ background: "linear-gradient(135deg, #f97316 0%, #ec4899 30%, #a855f7 60%, #6366f1 100%)", padding: "80px 24px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(20px)", borderRadius: 32, padding: "64px 48px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 32, textAlign: "center" }}>
             {stats.map((stat, i) => (
               <div key={i}>
                 <div
-                  className="text-6xl md:text-7xl font-black mb-3"
                   style={{
+                    fontSize: "clamp(48px, 6vw, 80px)",
+                    fontWeight: 900,
+                    marginBottom: 8,
                     background: "linear-gradient(135deg, #4361ee 0%, #7c3aed 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -25,14 +27,13 @@ export default function Stats() {
                 >
                   {stat.number}
                 </div>
-                <p className="text-gray-600 text-base font-medium">{stat.label}</p>
+                <p style={{ color: "#6b7280", fontSize: 16, fontWeight: 500 }}>{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
-
-        <div className="text-center mt-10">
-          <a href="/demo" className="pill-btn pill-btn-primary px-8 py-3">
+        <div style={{ textAlign: "center", marginTop: 40 }}>
+          <a href="/demo" className="pill-btn pill-btn-primary" style={{ padding: "14px 32px" }}>
             Meer weten over Elvatix
           </a>
         </div>

@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef } from "react";
 
 const pains = [
   "Handmatig InMails typen voor élke kandidaat.",
@@ -10,34 +9,22 @@ const pains = [
 ];
 
 export default function PainPoints() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.15 }
-    );
-    ref.current?.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
-      <div className="max-w-3xl mx-auto text-center">
-        <div className="space-y-3">
+    <section style={{ padding: "80px 24px", textAlign: "center", background: "#f9fafb" }}>
+      <div style={{ maxWidth: 700, margin: "0 auto" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 48 }}>
           {pains.map((pain, i) => (
-            <p key={i} className={`fade-in-up fade-in-up-delay-${i + 1} text-lg text-gray-500 leading-relaxed`}>
+            <p key={i} style={{ fontSize: 17, color: "#6b7280", lineHeight: 1.6 }}>
               {pain}
             </p>
           ))}
         </div>
-
-        <div className="fade-in-up fade-in-up-delay-5 mt-16">
-          <h2 className="text-3xl md:text-5xl font-black italic text-gray-900 mb-4">
-            Wat als het anders kon?
-          </h2>
-          <p className="text-gray-400">Een nieuwe manier van recruiters bereiken.</p>
-        </div>
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, fontStyle: "italic", color: "#111", marginBottom: 12 }}>
+          Wat als het anders kon?
+        </h2>
+        <p style={{ fontSize: 16, color: "#9ca3af" }}>
+          Een nieuwe manier van recruiters bereiken.
+        </p>
       </div>
     </section>
   );

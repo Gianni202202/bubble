@@ -1,76 +1,25 @@
-import Link from "next/link";
+"use client";
 
 const columns = [
-  {
-    title: "Platform",
-    links: [
-      { label: "AI Copilot", href: "/platform" },
-      { label: "InMails", href: "/module-inmails" },
-      { label: "Connectieverzoeken", href: "/module-connectieverzoeken" },
-      { label: "Reminders", href: "/module-reminders" },
-      { label: "Custom GPT", href: "/module-custom-gpt" },
-      { label: "Templates", href: "/module-template-instructies" },
-      { label: "Analytics", href: "/analytics" },
-    ],
-  },
-  {
-    title: "Voor wie",
-    links: [
-      { label: "Recruitmentbureaus", href: "/voor-recruitmentbureaus" },
-      { label: "Detacheringsbureaus", href: "/voor-detacheringsbureaus" },
-      { label: "Corporate Recruiters", href: "/voor-corporate-recruiters" },
-      { label: "Executive Search", href: "/executive-search" },
-      { label: "Freelancers", href: "/freelance-recruiters" },
-    ],
-  },
-  {
-    title: "Case Studies",
-    links: [
-      { label: "Manpower", href: "/case-study-manpower" },
-      { label: "Vibe Group", href: "/case-study-vibegroup" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Blog", href: "/blogs" },
-      { label: "Integraties", href: "/integraties-linkedin" },
-      { label: "Pricing", href: "/pricing" },
-    ],
-  },
-  {
-    title: "Bedrijf",
-    links: [
-      { label: "Over ons", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-    ],
-  },
+  { title: "PLATFORM", links: ["AI Copilot", "InMails", "Connectieverzoeken", "Reminders", "Custom GPT", "Templates", "Analytics"] },
+  { title: "VOOR WIE", links: ["Recruitmentbureaus", "Detacheringsbureaus", "Corporate Recruiters", "Executive Search", "Freelancers"] },
+  { title: "CASE STUDIES", links: ["Manpower", "Vibe Group"] },
+  { title: "RESOURCES", links: ["Blog", "Integraties", "Pricing"] },
+  { title: "BEDRIJF", links: ["Over ons", "Contact", "Privacy", "Terms"] },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 text-gray-600">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="mb-12">
-          <Link href="/" className="text-2xl font-extrabold text-gray-900 tracking-tight">
-            Elvatix
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
-                {col.title}
-              </h4>
-              <ul className="space-y-3">
+    <footer style={{ padding: "64px 24px 32px", background: "#fff", borderTop: "1px solid #e5e7eb" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 32, marginBottom: 48 }}>
+          {columns.map((col, i) => (
+            <div key={i}>
+              <h4 style={{ fontSize: 12, fontWeight: 700, color: "#374151", letterSpacing: "0.1em", marginBottom: 16 }}>{col.title}</h4>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
                 {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-gray-500 hover:text-gray-900 transition">
-                      {link.label}
-                    </Link>
+                  <li key={link}>
+                    <a href="#" style={{ fontSize: 14, color: "#6b7280", textDecoration: "none" }}>{link}</a>
                   </li>
                 ))}
               </ul>
@@ -78,19 +27,13 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Elvatix. Alle rechten voorbehouden.
-          </p>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://linkedin.com/company/elvatix"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-gray-400 hover:text-gray-900 transition flex items-center gap-1"
-            >
-              <span>in</span> Follow us!
-            </a>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #e5e7eb", paddingTop: 24 }}>
+          <div>
+            <h3 style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 4 }}>Elvatix</h3>
+            <p style={{ fontSize: 13, color: "#9ca3af" }}>© 2026 Elvatix. Alle rechten voorbehouden.</p>
+          </div>
+          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+            <span style={{ fontSize: 13, color: "#9ca3af" }}>Follow us!</span>
           </div>
         </div>
       </div>

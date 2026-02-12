@@ -5,87 +5,93 @@ const tabs = [
   {
     id: "inmails",
     label: "InMails",
-    badge: "InMails",
+    emoji: "💬",
     title: "Schrijf gepersonaliseerde InMails op schaal",
-    description: "Onze AI leest het LinkedIn-profiel van je kandidaat en genereert een volledig gepersonaliseerd bericht — in de juiste toon, met relevante hooks. Eén klik en je bericht is klaar.",
-    cta: "Meer over InMails",
-    mockup: "💬",
+    desc: "Onze AI leest het LinkedIn-profiel van je kandidaat en genereert een volledig gepersonaliseerd bericht — in de juiste toon, met relevante hooks. Eén klik en je bericht is klaar.",
+    link: "/features/inmails",
   },
   {
     id: "connecties",
     label: "Connectieverzoeken",
-    badge: "Connecties",
-    title: "Stuur slimme connectieverzoeken die geaccepteerd worden",
-    description: "Vergeet generieke templates. Elvatix maakt elk connectieverzoek uniek op basis van gedeelde interesses, ervaring en recente activiteit op LinkedIn.",
-    cta: "Meer over connecties",
-    mockup: "🤝",
+    emoji: "🤝",
+    title: "Connectieverzoeken die echt aankomen",
+    desc: "Vergeet standaard 'I\'d like to add you to my network'. Elvatix schrijft connectieverzoeken die opvallen en conversaties starten.",
+    link: "/features/connections",
   },
   {
     id: "reminders",
     label: "Reminders",
-    badge: "Reminders",
-    title: "Nooit meer een follow-up vergeten",
-    description: "Stel automatische herinneringen in voor kandidaten die niet hebben gereageerd. Elvatix genereert een passend follow-up bericht op het optimale moment.",
-    cta: "Meer over reminders",
-    mockup: "⏰",
+    emoji: "⏰",
+    title: "Automatische follow-ups",
+    desc: "Stel in wanneer je wilt opvolgen. Elvatix herinnert je en genereert een follow-up bericht afgestemd op de vorige interactie.",
+    link: "/features/reminders",
   },
   {
     id: "analytics",
     label: "Analytics",
-    badge: "Analytics",
-    title: "Inzicht in wat wél werkt",
-    description: "Bekijk real-time welke berichten de hoogste response rate hebben. Optimaliseer je templates op basis van data, niet op gevoel.",
-    cta: "Meer over analytics",
-    mockup: "📊",
+    emoji: "📊",
+    title: "Inzicht in je outreach performance",
+    desc: "Zie welke berichten het beste converteren, welke templates de hoogste response rate hebben en waar je tijd het meest oplevert.",
+    link: "/features/analytics",
   },
 ];
 
 export default function Features() {
   const [active, setActive] = useState(0);
-  const current = tabs[active];
+  const tab = tabs[active];
 
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-black mb-4">
-            Neem je recruitment workflow van losse<br />
-            tools naar één krachtig platform
-          </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Bekijk de features die Elvatix uniek maken — elk onderdeel is een
-            volwaardig product bij andere aanbieders. 😎
-          </p>
-        </div>
+    <section style={{ padding: "80px 24px", background: "#fff" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, textAlign: "center", color: "#111", marginBottom: 16 }}>
+          Neem je recruitment workflow van losse tools naar één krachtig platform
+        </h2>
+        <p style={{ textAlign: "center", color: "#6b7280", fontSize: 16, maxWidth: 600, margin: "0 auto 48px", lineHeight: 1.6 }}>
+          Bekijk de features die Elvatix uniek maken — elk onderdeel is een volwaardig product bij andere aanbieders. 😎
+        </p>
 
-        <div className="flex justify-center gap-8 mb-10 border-b border-gray-200">
-          {tabs.map((tab, i) => (
+        {/* Tab navigation */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 32, marginBottom: 48, borderBottom: "1px solid #e5e7eb", paddingBottom: 0 }}>
+          {tabs.map((t, i) => (
             <button
-              key={tab.id}
+              key={t.id}
               onClick={() => setActive(i)}
-              className={`pb-3 text-base transition-all cursor-pointer ${
-                i === active ? "tab-active" : "tab-inactive"
-              }`}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                paddingBottom: 16,
+                fontSize: 15,
+                fontWeight: i === active ? 600 : 400,
+                color: i === active ? "#4361ee" : "#6b7280",
+                borderBottom: i === active ? "2px solid #4361ee" : "2px solid transparent",
+                transition: "all 0.2s",
+              }}
             >
-              {tab.label}
+              {t.label}
             </button>
           ))}
         </div>
 
-        <div className="feature-card">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="p-10 lg:p-14">
-              <span className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-semibold mb-6">
-                {current.badge}
-              </span>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">{current.title}</h3>
-              <p className="text-gray-500 leading-relaxed mb-8">{current.description}</p>
-              <a href="#" className="text-blue-600 font-semibold hover:underline">
-                {current.cta} →
-              </a>
-            </div>
-            <div className="bg-gray-100 p-10 lg:p-14 flex items-center justify-center min-h-[300px]">
-              <div className="text-8xl animate-float">{current.mockup}</div>
+        {/* Tab content */}
+        <div style={{ background: "#f9fafb", borderRadius: 24, padding: 48, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", minHeight: 300 }}>
+          <div>
+            <p style={{ fontSize: 12, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12 }}>
+              {tab.label}
+            </p>
+            <h3 style={{ fontSize: 28, fontWeight: 800, color: "#111", marginBottom: 16, lineHeight: 1.2 }}>
+              {tab.title}
+            </h3>
+            <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7, marginBottom: 24 }}>
+              {tab.desc}
+            </p>
+            <a href={tab.link} style={{ color: "#4361ee", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
+              Meer over {tab.label} →
+            </a>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ fontSize: 120, filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.1))" }}>
+              {tab.emoji}
             </div>
           </div>
         </div>

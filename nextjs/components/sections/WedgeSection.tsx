@@ -1,16 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-const timelineTop = [
-  { x: 30, label: "Direct AI-gegenereerde berichten" },
-  { x: 50, label: "Hogere response rates" },
-  { x: 75, label: "Eerste keus bij hiring needs" },
-];
-
-const timelineBottom = [
-  { x: 30, label: "70% van outreach is verouderd" },
-  { x: 50, label: "Elke kandidaat opnieuw handmatig" },
-  { x: 75, label: "Vertrouwen daalt bij trage opvolging" },
+const timelineItems = [
+  { label: "Direct AI-gegenereerde berichten", filled: true },
+  { label: "70% van outreach is verouderd", filled: false },
+  { label: "Elke kandidaat ophalen, handmatig", filled: false },
+  { label: "Vertrouwen daalt bij trage opvolging", filled: false },
 ];
 
 export default function WedgeSection() {
@@ -21,93 +16,65 @@ export default function WedgeSection() {
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
-      const scrolled = viewportHeight - rect.top;
-      const total = sectionHeight + viewportHeight;
-      const p = Math.max(0, Math.min(1, scrolled / total));
+      const h = sectionRef.current.offsetHeight;
+      const p = Math.min(1, Math.max(0, -rect.top / (h - window.innerHeight)));
       setProgress(p);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const spread = progress * 40;
-  const topY = 50 - spread;
-  const bottomY = 50 + spread;
-  const clipPath = `polygon(0 50%, 100% ${topY}%, 100% ${bottomY}%, 0 50%)`;
+  const wedgeSize = 2 + progress * 46;
 
   return (
-    <section ref={sectionRef} className="wedge-bg py-32 px-6 relative" style={{ minHeight: "100vh" }}>
-      <div className="max-w-4xl mx-auto text-left mb-20 relative z-10">
-        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-          Recruitment verandert.
+    <section
+      ref={sectionRef}
+      className="wedge-bg"
+      style={{ minHeight: "120vh", padding: "100px 24px", position: "relative", overflow: "hidden" }}
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 2 }}>
+        <h2 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "white", marginBottom: 12 }}>
+          <span className="gradient-text" style={{ background: "linear-gradient(135deg, #fbbf24, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>R</span>
+          ecruitment verandert.
         </h2>
-        <p className="text-lg text-white/70 max-w-xl leading-relaxed">
-          Wie blijft vasthouden aan de oude manier, loopt achter.
-          Met de Elvatix AI Copilot ben je altijd een stap voor.
+        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", maxWidth: 500, marginBottom: 32 }}>
+          Wie blijft vasthouden aan de oude manier, loopt achter. Met de Elvatix AI Copilot ben je altijd een stap voor.
         </p>
-        <div className="flex gap-4 mt-8">
-          <span className="pill-btn pill-btn-outline" style={{ borderColor: "white", color: "white" }}>
-            Elvatix AI Copilot
-          </span>
+        <a href="/platform" className="pill-btn" style={{ background: "rgba(255,255,255,0.15)", color: "white", border: "1px solid rgba(255,255,255,0.3)", padding: "10px 28px", borderRadius: 9999 }}>
+          Elvatix AI Copilot
+        </a>
+
+        {/* Timeline */}
+        <div style={{ position: "absolute", top: 200, left: 40, display: "flex", flexDirection: "column", gap: 32 }}>
+          {timelineItems.map((item, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div className={item.filled ? "timeline-node-filled" : "timeline-node"} />
+              <span style={{ color: "white", fontSize: 14, fontWeight: 500, opacity: item.filled ? 1 : 0.6 }}>
+                {item.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className="wedge-shape" style={{ clipPath, top: 0, bottom: 0, height: "100%" }} />
+      {/* The wedge */}
+      <div
+        className="wedge-shape"
+        style={{
+          top: 0,
+          bottom: 0,
+          clipPath: `polygon(0 ${50 - wedgeSize}%, 100% ${48 - wedgeSize}%, 100% ${52 + wedgeSize}%, 0 ${50 + wedgeSize}%)`,
+        }}
+      />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="relative h-48">
-          {timelineTop.map((node, i) => {
-            const opacity = progress > (i + 1) * 0.2 ? 1 : 0;
-            return (
-              <div
-                key={i}
-                className="absolute text-center transition-all duration-500"
-                style={{ left: `${node.x}%`, top: `${20 - spread * 0.3}%`, transform: "translateX(-50%)", opacity }}
-              >
-                <p className="text-white text-sm font-medium mb-2 whitespace-nowrap">{node.label}</p>
-                <div className="timeline-node-filled mx-auto" />
-                <div className="timeline-line h-8 mx-auto" />
-              </div>
-            );
-          })}
-        </div>
+      {/* Corner labels */}
+      <div style={{ position: "absolute", top: 40, right: 40, zIndex: 3, textAlign: "right" }}>
+        <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 14 }}>De kloof</p>
+        <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 14 }}>wordt groter.</p>
+        <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 24 }}>↓</span>
       </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="relative h-48">
-          {timelineBottom.map((node, i) => {
-            const opacity = progress > (i + 1) * 0.2 ? 1 : 0;
-            return (
-              <div
-                key={i}
-                className="absolute text-center transition-all duration-500"
-                style={{ left: `${node.x}%`, bottom: `${20 - spread * 0.3}%`, transform: "translateX(-50%)", opacity }}
-              >
-                <div className="timeline-line h-8 mx-auto" />
-                <div className="timeline-node mx-auto mb-2" />
-                <p className="text-white/70 text-sm whitespace-nowrap">{node.label}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {progress > 0.5 && (
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 z-10 text-center text-white transition-opacity duration-700">
-          <div className="text-3xl mb-2">↑</div>
-          <p className="text-sm font-semibold">De kloof<br />wordt groter.</p>
-          <div className="text-3xl mt-2">↓</div>
-        </div>
-      )}
-
-      <div className="relative z-10 mt-8">
-        <span className="pill-btn pill-btn-outline" style={{ borderColor: "white", color: "white" }}>
-          De Status Quo
-        </span>
+      <div style={{ position: "absolute", bottom: 40, left: 24, zIndex: 3 }}>
+        <a href="#comparison" className="pill-btn" style={{ background: "rgba(255,255,255,0.15)", color: "white", border: "1px solid rgba(255,255,255,0.3)", padding: "10px 28px", borderRadius: 9999 }}>De Status Quo</a>
       </div>
     </section>
   );
