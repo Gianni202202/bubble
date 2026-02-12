@@ -24,58 +24,83 @@ export default function WedgeSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const wedgeSize = 2 + progress * 46;
+  // Much smaller wedge: starts at 1% and grows to max 15%
+  const wedgeSize = 1 + progress * 14;
 
   return (
     <section
       ref={sectionRef}
-      className="wedge-bg"
-      style={{ minHeight: "120vh", padding: "100px 24px", position: "relative", overflow: "hidden" }}
+      style={{
+        background: "linear-gradient(135deg, #a855f7 0%, #d946ef 30%, #7c3aed 70%, #1e1b4b 100%)",
+        minHeight: "80vh",
+        padding: "80px 24px",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 2 }}>
-        <h2 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "white", marginBottom: 12 }}>
-          <span className="gradient-text" style={{ background: "linear-gradient(135deg, #fbbf24, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>R</span>
-          ecruitment verandert.
-        </h2>
-        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", maxWidth: 500, marginBottom: 32 }}>
-          Wie blijft vasthouden aan de oude manier, loopt achter. Met de Elvatix AI Copilot ben je altijd een stap voor.
-        </p>
-        <a href="/platform" className="pill-btn" style={{ background: "rgba(255,255,255,0.15)", color: "white", border: "1px solid rgba(255,255,255,0.3)", padding: "10px 28px", borderRadius: 9999 }}>
-          Elvatix AI Copilot
-        </a>
+      <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 2 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+          {/* Left: headline + text */}
+          <div>
+            <h2 style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 900, color: "white", marginBottom: 16, lineHeight: 1.1 }}>
+              Recruitment verandert.
+            </h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", maxWidth: 460, marginBottom: 32, lineHeight: 1.7 }}>
+              Wie blijft vasthouden aan de oude manier, loopt achter. Met de Elvatix AI Copilot ben je altijd een stap voor.
+            </p>
+            <a href="/platform" style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "rgba(255,255,255,0.15)",
+              color: "white",
+              border: "1px solid rgba(255,255,255,0.3)",
+              padding: "10px 28px",
+              borderRadius: 9999,
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: "none",
+              cursor: "pointer",
+            }}>
+              Elvatix AI Copilot
+            </a>
+          </div>
 
-        {/* Timeline */}
-        <div style={{ position: "absolute", top: 200, left: 40, display: "flex", flexDirection: "column", gap: 32 }}>
-          {timelineItems.map((item, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <div className={item.filled ? "timeline-node-filled" : "timeline-node"} />
-              <span style={{ color: "white", fontSize: 14, fontWeight: 500, opacity: item.filled ? 1 : 0.6 }}>
-                {item.label}
-              </span>
-            </div>
-          ))}
+          {/* Right: timeline */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 28, paddingTop: 16 }}>
+            {timelineItems.map((item, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                <div style={{
+                  width: item.filled ? 14 : 12,
+                  height: item.filled ? 14 : 12,
+                  border: "2px solid white",
+                  borderRadius: 3,
+                  background: item.filled ? "white" : "transparent",
+                  flexShrink: 0,
+                }} />
+                <span style={{ color: "white", fontSize: 14, fontWeight: 500, opacity: item.filled ? 1 : 0.6 }}>
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* The wedge */}
+      {/* Wedge shape — subtle, centered visually */}
       <div
-        className="wedge-shape"
         style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
           top: 0,
           bottom: 0,
+          background: "#0a0a0a",
           clipPath: `polygon(0 ${50 - wedgeSize}%, 100% ${48 - wedgeSize}%, 100% ${52 + wedgeSize}%, 0 ${50 + wedgeSize}%)`,
+          transition: "clip-path 0.05s linear",
+          zIndex: 1,
         }}
       />
-
-      {/* Corner labels */}
-      <div style={{ position: "absolute", top: 40, right: 40, zIndex: 3, textAlign: "right" }}>
-        <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 14 }}>De kloof</p>
-        <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 14 }}>wordt groter.</p>
-        <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 24 }}>↓</span>
-      </div>
-      <div style={{ position: "absolute", bottom: 40, left: 24, zIndex: 3 }}>
-        <a href="#comparison" className="pill-btn" style={{ background: "rgba(255,255,255,0.15)", color: "white", border: "1px solid rgba(255,255,255,0.3)", padding: "10px 28px", borderRadius: 9999 }}>De Status Quo</a>
-      </div>
     </section>
   );
 }
