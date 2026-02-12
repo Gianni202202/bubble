@@ -31,17 +31,20 @@ export default function Testimonials() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.1 }
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("visible");
+      }),
+      { threshold: 0.05, rootMargin: "0px 0px -50px 0px" }
     );
-    ref.current?.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
+    const els = ref.current?.querySelectorAll(".fade-in-up");
+    els?.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
     <section ref={ref} className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="fade-in-up text-4xl md:text-5xl font-black text-center italic mb-16">
+        <h2 className="text-4xl md:text-5xl font-black text-center italic mb-16" style={{ opacity: 1 }}>
           Wat onze klanten zeggen
         </h2>
 
@@ -49,7 +52,8 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className={`fade-in-up fade-in-up-delay-${i + 1} bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow`}
+              className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
+              style={{ opacity: 1, transform: "none" }}
             >
               <p className="text-purple-600 text-lg font-medium leading-relaxed mb-6">
                 &ldquo;{t.quote}&rdquo;
@@ -62,7 +66,7 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="fade-in-up fade-in-up-delay-4 flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6" style={{ opacity: 1 }}>
           {badges.map((badge, i) => (
             <span
               key={i}

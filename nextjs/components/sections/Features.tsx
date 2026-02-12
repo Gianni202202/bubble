@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 const tabs = [
   {
@@ -42,23 +42,12 @@ const tabs = [
 
 export default function Features() {
   const [active, setActive] = useState(0);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.1 }
-    );
-    ref.current?.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   const current = tabs[active];
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="fade-in-up text-center mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-black mb-4">
             Neem je recruitment workflow van losse<br />
             tools naar één krachtig platform
@@ -69,12 +58,12 @@ export default function Features() {
           </p>
         </div>
 
-        <div className="fade-in-up fade-in-up-delay-1 flex justify-center gap-8 mb-10 border-b border-gray-200">
+        <div className="flex justify-center gap-8 mb-10 border-b border-gray-200">
           {tabs.map((tab, i) => (
             <button
               key={tab.id}
               onClick={() => setActive(i)}
-              className={`pb-3 text-base transition-all ${
+              className={`pb-3 text-base transition-all cursor-pointer ${
                 i === active ? "tab-active" : "tab-inactive"
               }`}
             >
@@ -83,7 +72,7 @@ export default function Features() {
           ))}
         </div>
 
-        <div className="fade-in-up fade-in-up-delay-2 feature-card">
+        <div className="feature-card">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-10 lg:p-14">
               <span className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-semibold mb-6">
@@ -95,7 +84,7 @@ export default function Features() {
                 {current.cta} →
               </a>
             </div>
-            <div className="bg-gray-100 p-10 lg:p-14 flex items-center justify-center">
+            <div className="bg-gray-100 p-10 lg:p-14 flex items-center justify-center min-h-[300px]">
               <div className="text-8xl animate-float">{current.mockup}</div>
             </div>
           </div>
