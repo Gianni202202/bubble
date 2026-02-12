@@ -1,73 +1,97 @@
+import Link from "next/link";
+
+const columns = [
+  {
+    title: "Platform",
+    links: [
+      { label: "AI Copilot", href: "/platform" },
+      { label: "InMails", href: "/module-inmails" },
+      { label: "Connectieverzoeken", href: "/module-connectieverzoeken" },
+      { label: "Reminders", href: "/module-reminders" },
+      { label: "Custom GPT", href: "/module-custom-gpt" },
+      { label: "Templates", href: "/module-template-instructies" },
+      { label: "Analytics", href: "/analytics" },
+    ],
+  },
+  {
+    title: "Voor wie",
+    links: [
+      { label: "Recruitmentbureaus", href: "/voor-recruitmentbureaus" },
+      { label: "Detacheringsbureaus", href: "/voor-detacheringsbureaus" },
+      { label: "Corporate Recruiters", href: "/voor-corporate-recruiters" },
+      { label: "Executive Search", href: "/executive-search" },
+      { label: "Freelancers", href: "/freelance-recruiters" },
+    ],
+  },
+  {
+    title: "Case Studies",
+    links: [
+      { label: "Manpower", href: "/case-study-manpower" },
+      { label: "Vibe Group", href: "/case-study-vibegroup" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Blog", href: "/blogs" },
+      { label: "Integraties", href: "/integraties-linkedin" },
+      { label: "Pricing", href: "/pricing" },
+    ],
+  },
+  {
+    title: "Bedrijf",
+    links: [
+      { label: "Over ons", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+    ],
+  },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-800 text-gray-300">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
-          {/* Modules */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Modules</h3>
-            <ul className="space-y-2">
-              <li><a href="/module-inmails" className="hover:text-white transition">InMails</a></li>
-              <li><a href="/module-connectieverzoeken" className="hover:text-white transition">Connectieverzoeken</a></li>
-              <li><a href="/module-reminders" className="hover:text-white transition">Reminders</a></li>
-              <li><a href="/module-custom-gpt" className="hover:text-white transition">Custom GPT</a></li>
-              <li><a href="/module-template-instructies" className="hover:text-white transition">Template Instructies</a></li>
-              <li><a href="/module-recruitment-sales-switch" className="hover:text-white transition">Sales Switch</a></li>
-            </ul>
-          </div>
-
-          {/* Voor wie */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Voor wie</h3>
-            <ul className="space-y-2">
-              <li><a href="/voor-recruitmentbureaus" className="hover:text-white transition">Recruitmentbureaus</a></li>
-              <li><a href="/voor-detacheringsbureaus" className="hover:text-white transition">Detacheringsbureaus</a></li>
-              <li><a href="/voor-corporate-recruiters" className="hover:text-white transition">Corporate Recruiters</a></li>
-            </ul>
-            <h3 className="text-white font-semibold mt-6 mb-4">Case Studies</h3>
-            <ul className="space-y-2">
-              <li><a href="/case-study-manpower" className="hover:text-white transition">Manpower</a></li>
-              <li><a href="/case-study-vibegroup" className="hover:text-white transition">Vibe Group</a></li>
-            </ul>
-          </div>
-
-          {/* Bedrijf */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Bedrijf</h3>
-            <ul className="space-y-2">
-              <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
-              <li><a href="/blogs" className="hover:text-white transition">Blog</a></li>
-              <li><a href="/integraties-linkedin" className="hover:text-white transition">Integraties</a></li>
-            </ul>
-          </div>
-
-          {/* Legal & Social */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li><a href="/terms" className="hover:text-white transition">Terms</a></li>
-              <li><a href="/privacy" className="hover:text-white transition">Privacy</a></li>
-            </ul>
-            <h3 className="text-white font-semibold mt-6 mb-4">Volg ons</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="https://linkedin.com/in/gianni-linssen-742842315" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition"
-                >
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </div>
-
+    <footer className="bg-white border-t border-gray-100 text-gray-600">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="mb-12">
+          <Link href="/" className="text-2xl font-extrabold text-gray-900 tracking-tight">
+            Elvatix
+          </Link>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Elvatix. Alle rechten voorbehouden.</p>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+                {col.title}
+              </h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-sm text-gray-500 hover:text-gray-900 transition">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} Elvatix. Alle rechten voorbehouden.
+          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://linkedin.com/company/elvatix"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-400 hover:text-gray-900 transition flex items-center gap-1"
+            >
+              <span>in</span> Follow us!
+            </a>
+          </div>
         </div>
       </div>
     </footer>
