@@ -190,7 +190,7 @@ export default function LeadMagnet() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <span style={{
-            display: "inline-block", fontSize: 12, fontWeight: 600, color: "#4361ee",
+            display: "inline-block", fontSize: 12, fontWeight: 600, color: "#8db600",
             letterSpacing: "1px", textTransform: "uppercase", marginBottom: 16,
           }}>
             AI Recruitment Writer
@@ -252,9 +252,9 @@ export default function LeadMagnet() {
                   {(["informal", "formal"] as const).map((t) => (
                     <button key={t} onClick={() => setTone(t)} style={{
                       flex: 1, padding: "11px 16px", borderRadius: 8,
-                      border: tone === t ? "1.5px solid #4361ee" : "1px solid #d1d5db",
+                      border: tone === t ? "1.5px solid #8db600" : "1px solid #d1d5db",
                       background: tone === t ? "#f0f3ff" : "#fff",
-                      color: tone === t ? "#4361ee" : "#6b7280",
+                      color: tone === t ? "#8db600" : "#6b7280",
                       fontWeight: 600, fontSize: 14, cursor: "pointer",
                       transition: "all 0.15s ease", fontFamily: "inherit",
                     }}>
@@ -276,7 +276,7 @@ export default function LeadMagnet() {
 
               <button onClick={handleGenerate} disabled={!email || !linkedinUrl} style={{
                 width: "100%", padding: "14px 24px",
-                background: !email || !linkedinUrl ? "#d1d5db" : "#4361ee",
+                background: !email || !linkedinUrl ? "#d1d5db" : "#8db600",
                 color: "white", border: "none", borderRadius: 10,
                 fontSize: 15, fontWeight: 700, cursor: !email || !linkedinUrl ? "not-allowed" : "pointer",
                 transition: "background 0.2s", fontFamily: "inherit",
@@ -294,15 +294,15 @@ export default function LeadMagnet() {
                     <div key={step.key} style={{ flex: 1 }}>
                       <div style={{
                         height: 3, borderRadius: 2, marginBottom: 8,
-                        background: status === "done" ? "#4361ee"
+                        background: status === "done" ? "#8db600"
                           : status === "active" ? "#93a6f5"
                           : "#e5e7eb",
                         transition: "background 0.4s ease",
                       }} />
                       <p style={{
                         fontSize: 11, fontWeight: 600, textAlign: "center", margin: 0,
-                        color: status === "done" ? "#4361ee"
-                          : status === "active" ? "#4361ee"
+                        color: status === "done" ? "#8db600"
+                          : status === "active" ? "#8db600"
                           : "#d1d5db",
                         transition: "color 0.3s",
                       }}>
@@ -321,7 +321,7 @@ export default function LeadMagnet() {
               }}>
                 {phase !== "done" ? (
                   <div style={{
-                    width: 8, height: 8, borderRadius: "50%", background: "#4361ee",
+                    width: 8, height: 8, borderRadius: "50%", background: "#8db600",
                     animation: "lm-pulse 1.5s ease-in-out infinite", flexShrink: 0,
                   }} />
                 ) : (
@@ -364,7 +364,7 @@ export default function LeadMagnet() {
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <div style={{
-                      width: 44, height: 44, borderRadius: 10, background: "#4361ee",
+                      width: 44, height: 44, borderRadius: 10, background: "#8db600",
                       display: "flex", alignItems: "center", justifyContent: "center",
                       color: "white", fontSize: 16, fontWeight: 700, flexShrink: 0,
                     }}>
@@ -377,7 +377,7 @@ export default function LeadMagnet() {
                         </p>
                         {enriched && (
                           <span style={{
-                            fontSize: 10, fontWeight: 600, color: "#4361ee", background: "#f0f3ff",
+                            fontSize: 10, fontWeight: 600, color: "#8db600", background: "#f0f3ff",
                             padding: "2px 7px", borderRadius: 4, letterSpacing: "0.3px",
                           }}>VERRIJKT</span>
                         )}
@@ -417,9 +417,9 @@ export default function LeadMagnet() {
                     ].map((tab) => (
                       <button key={tab.key} onClick={() => setActiveTab(tab.key)} style={{
                         padding: "10px 20px", border: "none",
-                        borderBottom: activeTab === tab.key ? "2px solid #4361ee" : "2px solid transparent",
+                        borderBottom: activeTab === tab.key ? "2px solid #8db600" : "2px solid transparent",
                         background: "transparent",
-                        color: activeTab === tab.key ? "#4361ee" : "#9ca3af",
+                        color: activeTab === tab.key ? "#8db600" : "#9ca3af",
                         fontWeight: 600, fontSize: 13, cursor: "pointer",
                         fontFamily: "inherit", transition: "all 0.15s",
                         display: "flex", alignItems: "center", gap: 6,
@@ -444,7 +444,7 @@ export default function LeadMagnet() {
                         <span style={{ color: "#d1d5db", fontStyle: "italic" }}>Bericht wordt geschreven…</span>
                       )}
                       {phase === "writing-inmail" && inmailDisplayed && (
-                        <span style={{ color: "#4361ee", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
+                        <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
                       )}
                     </div>
                   )}
@@ -459,7 +459,7 @@ export default function LeadMagnet() {
                               <span style={{ color: "#d1d5db", fontStyle: "italic" }}>Wordt opgesteld…</span>
                             )}
                             {phase === "writing-conn" && connectionDisplayed && (
-                              <span style={{ color: "#4361ee", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
+                              <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
                             )}
                           </>
                         ) : (
@@ -486,7 +486,7 @@ export default function LeadMagnet() {
                       style={{
                         ...actionBtnStyle,
                         flex: 1,
-                        background: copiedInmail ? "#10b981" : "#4361ee",
+                        background: copiedInmail ? "#10b981" : "#8db600",
                         color: "white",
                       }}>
                       {copiedInmail ? "✓ Gekopieerd" : "Kopieer InMail"}
@@ -525,7 +525,7 @@ export default function LeadMagnet() {
                       </p>
                     </div>
                     <a href="/demo" style={{
-                      padding: "10px 20px", background: "#4361ee", color: "white",
+                      padding: "10px 20px", background: "#8db600", color: "white",
                       borderRadius: 8, fontWeight: 600, fontSize: 13,
                       textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0,
                     }}>
@@ -565,7 +565,7 @@ export default function LeadMagnet() {
 
         #lead-magnet input:focus {
           outline: none;
-          border-color: #4361ee !important;
+          border-color: #8db600 !important;
           box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.08);
         }
 

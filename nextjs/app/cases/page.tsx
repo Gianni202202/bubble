@@ -43,7 +43,7 @@ export default function CasesPage() {
     <main style={{ paddingTop: 100 }}>
       <section style={{ padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
+          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
             Case Studies
           </p>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
@@ -81,12 +81,12 @@ export default function CasesPage() {
                 <div key={r.metric} style={{ background: "#fff", borderRadius: 16, padding: 24, textAlign: "center", border: "1px solid #e5e7eb" }}>
                   <p style={{ fontSize: 13, color: "#6b7280", marginBottom: 8 }}>{r.metric}</p>
                   <p style={{ fontSize: 14, color: "#9ca3af", textDecoration: "line-through", marginBottom: 4 }}>{r.before}</p>
-                  <p style={{ fontSize: 28, fontWeight: 800, color: "#4361ee" }}>{r.after}</p>
+                  <p style={{ fontSize: 28, fontWeight: 800, color: "#8db600" }}>{r.after}</p>
                 </div>
               ))}
             </div>
 
-            <div style={{ background: "#fff", borderRadius: 16, padding: 32, borderLeft: "4px solid #4361ee" }}>
+            <div style={{ background: "#fff", borderRadius: 16, padding: 32, borderLeft: "4px solid #8db600" }}>
               <p style={{ fontSize: 16, color: "#374151", lineHeight: 1.7, fontStyle: "italic", marginBottom: 16 }}>"{c.quote}"</p>
               <p style={{ fontSize: 14, fontWeight: 600, color: "#111" }}>{c.quoteName}</p>
               <p style={{ fontSize: 13, color: "#6b7280" }}>{c.quoteRole}</p>

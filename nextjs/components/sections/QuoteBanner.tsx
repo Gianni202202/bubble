@@ -5,8 +5,8 @@ export default function QuoteBanner() {
     <section style={{ padding: "80px 24px", background: "#f9fafb" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <div style={{
-          background: "linear-gradient(135deg, #fef3c7 0%, #fff 50%, #dbeafe 100%)",
-          border: "3px solid #4361ee",
+          background: "linear-gradient(135deg, #f0f7d4 0%, #fff 50%, #f0f7d4 100%)",
+          border: "3px solid #8db600",
           borderRadius: 24,
           padding: 48,
           display: "grid",
@@ -15,7 +15,7 @@ export default function QuoteBanner() {
           alignItems: "center",
         }}>
           <div>
-            <p style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 700, color: "#4361ee", lineHeight: 1.4, marginBottom: 16 }}>
+            <p style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 700, color: "#8db600", lineHeight: 1.4, marginBottom: 16 }}>
               &ldquo;Ik besteed honderden uren aan het onderzoeken van recruitment tech en Elvatix is lichtjaren vooruit.&rdquo;
             </p>
             <p style={{ fontWeight: 700, fontSize: 15, color: "#111" }}>Kevin Coenen</p>

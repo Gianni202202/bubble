@@ -21,7 +21,7 @@ export default function IntegratiesPage() {
     <main style={{ paddingTop: 100 }}>
       <section style={{ padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Integraties</p>
+          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Integraties</p>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
             Werkt met je bestaande tools
           </h1>
@@ -39,7 +39,7 @@ export default function IntegratiesPage() {
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: "#111" }}>{integ.name}</h3>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: "#4361ee", background: "#eff2ff", padding: "2px 8px", borderRadius: 4 }}>{integ.category}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: "#8db600", background: "#f0f7d4", padding: "2px 8px", borderRadius: 4 }}>{integ.category}</span>
                 </div>
                 <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>{integ.desc}</p>
               </div>

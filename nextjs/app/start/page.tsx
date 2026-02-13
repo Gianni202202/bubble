@@ -44,12 +44,12 @@ export default function StartPage() {
           </form>
 
           <p style={{ textAlign: "center", fontSize: 13, color: "#9ca3af", marginTop: 16, lineHeight: 1.5 }}>
-            Door je aan te melden ga je akkoord met onze <a href="/terms" style={{ color: "#4361ee", textDecoration: "none" }}>voorwaarden</a> en <a href="/privacy" style={{ color: "#4361ee", textDecoration: "none" }}>privacybeleid</a>.
+            Door je aan te melden ga je akkoord met onze <a href="/terms" style={{ color: "#8db600", textDecoration: "none" }}>voorwaarden</a> en <a href="/privacy" style={{ color: "#8db600", textDecoration: "none" }}>privacybeleid</a>.
           </p>
         </div>
 
         <p style={{ textAlign: "center", fontSize: 14, color: "#6b7280", marginTop: 24 }}>
-          Al een account? <a href="/login" style={{ color: "#4361ee", fontWeight: 600, textDecoration: "none" }}>Log in →</a>
+          Al een account? <a href="/login" style={{ color: "#8db600", fontWeight: 600, textDecoration: "none" }}>Log in →</a>
         </p>
       </div>
     </main>

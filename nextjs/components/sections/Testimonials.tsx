@@ -24,7 +24,7 @@ export default function Testimonials() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24, marginBottom: 48 }}>
           {testimonials.map((t, i) => (
             <div key={i} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 20, padding: 32 }}>
-              <p style={{ fontSize: 16, color: "#6366f1", lineHeight: 1.6, marginBottom: 20, fontWeight: 500 }}>
+              <p style={{ fontSize: 16, color: "#6a9a00", lineHeight: 1.6, marginBottom: 20, fontWeight: 500 }}>
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p style={{ fontWeight: 700, fontSize: 15, color: "#111" }}>{t.name}</p>

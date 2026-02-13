@@ -31,7 +31,7 @@ export default function Hero() {
                 color: "#111",
               }}
             >
-              <span style={{ fontStyle: "italic", color: "#4361ee" }}>Jouw</span> complete{" "}
+              <span style={{ fontStyle: "italic", color: "#8db600" }}>Jouw</span> complete{" "}
               recruitment workflow.{" "}
               <span style={{ fontStyle: "italic" }}>Eén</span> easy-to-use,{" "}
               <span className="gradient-text">AI-native</span>{" "}
@@ -58,7 +58,7 @@ export default function Hero() {
           <div>
             <div
               style={{
-                background: "linear-gradient(135deg, #a855f7, #d946ef, #6366f1)",
+                background: "linear-gradient(135deg, #8db600, #a3c520, #6a9a00)",
                 borderRadius: 24,
                 padding: 32,
                 position: "relative",

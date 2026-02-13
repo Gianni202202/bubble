@@ -31,7 +31,7 @@ export default function LoginPage() {
             <label style={{ display: "flex", alignItems: "center", gap: 6, color: "#6b7280", cursor: "pointer" }}>
               <input type="checkbox" /> Onthoud mij
             </label>
-            <a href="#" style={{ color: "#4361ee", textDecoration: "none", fontWeight: 500 }}>Wachtwoord vergeten?</a>
+            <a href="#" style={{ color: "#8db600", textDecoration: "none", fontWeight: 500 }}>Wachtwoord vergeten?</a>
           </div>
 
           <button type="submit" className="pill-btn pill-btn-primary" style={{ padding: "14px 24px", fontSize: 15, width: "100%", cursor: "pointer", border: "none", marginTop: 8 }}>
@@ -40,7 +40,7 @@ export default function LoginPage() {
         </form>
 
         <p style={{ textAlign: "center", fontSize: 14, color: "#6b7280", marginTop: 24 }}>
-          Nog geen account? <a href="/start" style={{ color: "#4361ee", fontWeight: 600, textDecoration: "none" }}>Start gratis →</a>
+          Nog geen account? <a href="/start" style={{ color: "#8db600", fontWeight: 600, textDecoration: "none" }}>Start gratis →</a>
         </p>
       </div>
     </main>

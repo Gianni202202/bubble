@@ -10,7 +10,7 @@ export default function OverOnsPage() {
     <main style={{ paddingTop: 100 }}>
       <section style={{ padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Over ons</p>
+          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Over ons</p>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
             Wij geloven dat recruitment persoonlijk moet zijn
           </h1>
@@ -42,7 +42,7 @@ export default function OverOnsPage() {
               { value: "250K+", label: "Berichten gegenereerd" },
             ].map((s) => (
               <div key={s.label} style={{ background: "#fff", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb", textAlign: "center" }}>
-                <p style={{ fontSize: 36, fontWeight: 900, color: "#4361ee", marginBottom: 8 }}>{s.value}</p>
+                <p style={{ fontSize: 36, fontWeight: 900, color: "#8db600", marginBottom: 8 }}>{s.value}</p>
                 <p style={{ fontSize: 14, color: "#6b7280" }}>{s.label}</p>
               </div>
             ))}

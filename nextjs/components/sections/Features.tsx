@@ -63,8 +63,8 @@ export default function Features() {
                 paddingBottom: 16,
                 fontSize: 15,
                 fontWeight: i === active ? 600 : 400,
-                color: i === active ? "#4361ee" : "#6b7280",
-                borderBottom: i === active ? "2px solid #4361ee" : "2px solid transparent",
+                color: i === active ? "#8db600" : "#6b7280",
+                borderBottom: i === active ? "2px solid #8db600" : "2px solid transparent",
                 transition: "all 0.2s",
               }}
             >
@@ -76,7 +76,7 @@ export default function Features() {
         {/* Tab content */}
         <div style={{ background: "#f9fafb", borderRadius: 24, padding: 48, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", minHeight: 300 }}>
           <div>
-            <p style={{ fontSize: 12, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12 }}>
+            <p style={{ fontSize: 12, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12 }}>
               {tab.label}
             </p>
             <h3 style={{ fontSize: 28, fontWeight: 800, color: "#111", marginBottom: 16, lineHeight: 1.2 }}>
@@ -85,7 +85,7 @@ export default function Features() {
             <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7, marginBottom: 24 }}>
               {tab.desc}
             </p>
-            <a href={tab.link} style={{ color: "#4361ee", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
+            <a href={tab.link} style={{ color: "#8db600", fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
               Meer over {tab.label} →
             </a>
           </div>

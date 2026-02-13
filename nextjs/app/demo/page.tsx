@@ -6,7 +6,7 @@ export default function DemoPage() {
       <section style={{ padding: "80px 24px" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
+            <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
               Demo
             </p>
             <h1 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
@@ -18,7 +18,7 @@ export default function DemoPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {["Persoonlijke walkthrough van het platform", "Advies op maat voor jouw workflow", "Live voorbeeld met een LinkedIn profiel", "Q&A met ons team"].map((item) => (
                 <div key={item} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <span style={{ color: "#4361ee", fontWeight: 700, fontSize: 16 }}>✓</span>
+                  <span style={{ color: "#8db600", fontWeight: 700, fontSize: 16 }}>✓</span>
                   <span style={{ fontSize: 15, color: "#374151" }}>{item}</span>
                 </div>
               ))}

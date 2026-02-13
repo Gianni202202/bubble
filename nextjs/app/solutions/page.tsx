@@ -43,7 +43,7 @@ export default function SolutionsPage() {
     <main style={{ paddingTop: 100 }}>
       <section style={{ padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
+          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
             Oplossingen
           </p>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
@@ -68,7 +68,7 @@ export default function SolutionsPage() {
               <div>
                 <h3 style={{ fontSize: 24, fontWeight: 800, color: "#111", marginBottom: 12 }}>{a.title}</h3>
                 <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7, marginBottom: 16 }}>{a.desc}</p>
-                <p style={{ fontSize: 14, fontWeight: 600, color: "#4361ee" }}>{a.stats}</p>
+                <p style={{ fontSize: 14, fontWeight: 600, color: "#8db600" }}>{a.stats}</p>
               </div>
               {i % 2 !== 0 && (
                 <div style={{ fontSize: 80, textAlign: "center" }}>{a.icon}</div>

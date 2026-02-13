@@ -3,7 +3,7 @@
 export default function CTA() {
   return (
     <section style={{
-      background: "linear-gradient(135deg, #a855f7 0%, #6366f1 40%, #4361ee 100%)",
+      background: "linear-gradient(135deg, #8db600 0%, #6a9a00 40%, #8db600 100%)",
       padding: "100px 24px",
       textAlign: "center",
     }}>

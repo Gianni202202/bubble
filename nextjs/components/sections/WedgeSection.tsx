@@ -3,7 +3,7 @@
 export default function WedgeSection() {
   return (
     <section style={{
-      background: "linear-gradient(135deg, #7c3aed 0%, #4361ee 50%, #1e1b4b 100%)",
+      background: "linear-gradient(135deg, #7aa300 0%, #8db600 50%, #1a2e05 100%)",
       padding: "100px 24px",
       position: "relative",
       overflow: "hidden",

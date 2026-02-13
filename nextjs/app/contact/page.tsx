@@ -6,17 +6,17 @@ export default function ContactPage() {
       <section style={{ padding: "80px 24px" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Contact</p>
+            <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Contact</p>
             <h1 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>Laten we praten</h1>
             <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.7, marginBottom: 40 }}>Heb je een vraag, wil je een demo plannen, of ben je benieuwd of Elvatix bij jouw organisatie past? Laat het ons weten.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               <div>
                 <h3 style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4 }}>E-mail</h3>
-                <a href="mailto:hello@elvatix.com" style={{ fontSize: 15, color: "#4361ee", textDecoration: "none" }}>hello@elvatix.com</a>
+                <a href="mailto:hello@elvatix.com" style={{ fontSize: 15, color: "#8db600", textDecoration: "none" }}>hello@elvatix.com</a>
               </div>
               <div>
                 <h3 style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4 }}>LinkedIn</h3>
-                <a href="https://linkedin.com/company/elvatix" target="_blank" rel="noopener noreferrer" style={{ fontSize: 15, color: "#4361ee", textDecoration: "none" }}>linkedin.com/company/elvatix</a>
+                <a href="https://linkedin.com/company/elvatix" target="_blank" rel="noopener noreferrer" style={{ fontSize: 15, color: "#8db600", textDecoration: "none" }}>linkedin.com/company/elvatix</a>
               </div>
               <div>
                 <h3 style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4 }}>Locatie</h3>

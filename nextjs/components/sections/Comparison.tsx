@@ -36,7 +36,7 @@ export default function Comparison() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, marginBottom: 32 }}>
           <h3 style={{ fontSize: 18, fontWeight: 700, color: "#374151" }}>De oude manier</h3>
           <div />
-          <h3 style={{ fontSize: 18, fontWeight: 700, color: "#6366f1", textAlign: "right" }}>De nieuwe manier</h3>
+          <h3 style={{ fontSize: 18, fontWeight: 700, color: "#6a9a00", textAlign: "right" }}>De nieuwe manier</h3>
         </div>
 
         {/* Rows */}

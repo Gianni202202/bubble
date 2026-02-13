@@ -48,7 +48,7 @@ export default function BlogPage() {
     <main style={{ paddingTop: 100 }}>
       <section style={{ padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: "#4361ee", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Blog</p>
+          <p style={{ fontSize: 13, fontWeight: 600, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Blog</p>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, color: "#111", lineHeight: 1.1, marginBottom: 24 }}>
             Recruitment insights & tips
           </h1>
@@ -63,7 +63,7 @@ export default function BlogPage() {
           {posts.map((post) => (
             <article key={post.title} style={{ background: "#fff", borderRadius: 16, padding: 32, border: "1px solid #e5e7eb", cursor: "pointer", transition: "box-shadow 0.2s" }}>
               <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
-                <span style={{ fontSize: 12, fontWeight: 600, color: "#4361ee", background: "#eff2ff", padding: "4px 10px", borderRadius: 6 }}>{post.category}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: "#8db600", background: "#f0f7d4", padding: "4px 10px", borderRadius: 6 }}>{post.category}</span>
                 <span style={{ fontSize: 12, color: "#9ca3af" }}>{post.date}</span>
                 <span style={{ fontSize: 12, color: "#9ca3af" }}>{post.readTime} lezen</span>
               </div>
