@@ -94,7 +94,7 @@ ANTWOORD FORMAT (volg dit EXACT):
     }
 
     const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-pro-preview" });
     const result = await model.generateContent(prompt);
     const rawText = result.response.text();
 
