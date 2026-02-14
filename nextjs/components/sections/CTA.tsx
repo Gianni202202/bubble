@@ -6,7 +6,7 @@ export default function CTA() {
   return (
     <section style={{ padding: "80px 24px", background: "#fff" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
-        <AnimateOnScroll variant="scale">
+        <AnimateOnScroll variant="scaleUp">
           <motion.div
             style={{
               background: "linear-gradient(135deg, #8db600 0%, #6a9a00 50%, #3d5c00 100%)",
