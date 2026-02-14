@@ -1,65 +1,95 @@
 "use client";
 import { useState } from "react";
-
-const navLinks = [
-  { label: "Platform", href: "/platform" },
-  { label: "Oplossingen", href: "/solutions" },
-  { label: "Case Studies", href: "/cases" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Inloggen", href: "/login" },
-];
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  const navLinks = [
+    { label: "Modules", href: "#features" },
+    { label: "Voor Wie", href: "#solutions" },
+    { label: "Case Studies", href: "#testimonials" },
+    { label: "Contact", href: "https://elvatix.com" },
+  ];
+
   return (
-    <header className="navbar-floating">
-      <nav style={{ display: "flex", alignItems: "center", width: "100%" }}>
-        <a href="/" style={{ fontSize: 18, fontWeight: 800, color: "#111", textDecoration: "none", marginRight: 16 }}>
-          Elvatix
+    <header
+      style={{
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        zIndex: 100,
+        background: "rgba(255,255,255,0.85)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(0,0,0,0.06)",
+      }}
+    >
+      <div style={{
+        maxWidth: 1200,
+        margin: "0 auto",
+        padding: "16px 24px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}>
+        <a href="https://elvatix.com" style={{ fontWeight: 800, fontSize: 22, color: "#111", letterSpacing: "-0.02em", textDecoration: "none" }}>
+          <span style={{ color: "#8db600" }}>Elvatix</span>
         </a>
 
-        <div className="nav-links">
-          {navLinks.map((link) => (
-            <a key={link.label} href={link.href} style={{ fontSize: 14, fontWeight: 500, color: "#374151", textDecoration: "none" }}>
-              {link.label}
+        <nav className="desktop-nav">
+          <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+            {navLinks.map((link) => (
+              <a key={link.label} href={link.href} style={{ color: "#6b7280", textDecoration: "none", fontSize: 14, fontWeight: 500, transition: "color 0.2s" }}>
+                {link.label}
+              </a>
+            ))}
+            <a href="https://elvatix.com" className="pill-btn pill-btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>
+              Plan een demo
             </a>
-          ))}
-        </div>
+          </div>
+        </nav>
 
-        <div className="nav-cta">
-          <a href="/start" className="pill-btn pill-btn-outline" style={{ padding: "8px 20px", fontSize: 13 }}>
-            Start gratis
-          </a>
-          <a href="/demo" className="pill-btn pill-btn-primary" style={{ padding: "8px 20px", fontSize: 13 }}>
-            Boek een demo
-          </a>
-        </div>
-
-        <button className="hamburger" onClick={() => setOpen(!open)} aria-label="Menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2" strokeLinecap="round">
-            {open ? (
-              <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-            ) : (
-              <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>
-            )}
-          </svg>
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+          style={{
+            display: "none",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 8,
+          }}
+        >
+          <div style={{ width: 24, height: 2, background: "#111", marginBottom: 6 }} />
+          <div style={{ width: 24, height: 2, background: "#111", marginBottom: 6 }} />
+          <div style={{ width: 24, height: 2, background: "#111" }} />
         </button>
-      </nav>
-
-      <div className={`mobile-nav ${open ? "open" : ""}`}>
-        {navLinks.map((link) => (
-          <a key={link.label} href={link.href} onClick={() => setOpen(false)}>
-            {link.label}
-          </a>
-        ))}
-        <a href="/start" className="pill-btn pill-btn-outline" onClick={() => setOpen(false)}>
-          Start gratis
-        </a>
-        <a href="/demo" className="pill-btn pill-btn-primary" onClick={() => setOpen(false)}>
-          Boek een demo
-        </a>
       </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ overflow: "hidden", borderTop: "1px solid #f3f4f6" }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", padding: "16px 24px", gap: 16 }}>
+              {navLinks.map((link) => (
+                <a key={link.label} href={link.href} onClick={() => setOpen(false)} style={{ color: "#374151", textDecoration: "none", fontSize: 16, fontWeight: 500 }}>
+                  {link.label}
+                </a>
+              ))}
+              <a href="https://elvatix.com" className="pill-btn pill-btn-primary" style={{ padding: "12px 24px", fontSize: 15, textAlign: "center" }}>
+                Plan een demo
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
