@@ -3,7 +3,6 @@
 export default function Hero() {
   return (
     <section
-      className="section-responsive"
       style={{
         position: "relative",
         paddingTop: "140px",
@@ -14,13 +13,11 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Decorative blurs */}
       <div style={{ position: "absolute", top: 0, right: 0, width: 384, height: 384, background: "rgba(219,234,254,0.4)", borderRadius: "50%", filter: "blur(120px)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: 0, left: 0, width: 320, height: 320, background: "rgba(243,232,255,0.3)", borderRadius: "50%", filter: "blur(100px)", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
-          {/* Left copy */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
             <h1
               style={{
@@ -55,7 +52,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right illustration */}
           <div>
             <div
               style={{
@@ -73,7 +69,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="hero-features-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
                 {[
                   { icon: "💬", label: "InMails" },
                   { icon: "🤝", label: "Connecties" },
@@ -100,7 +96,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Social proof */}
         <div style={{ marginTop: 80, textAlign: "center" }}>
           <p style={{ fontSize: 14, fontWeight: 600, color: "#374151", marginBottom: 32 }}>
             Vertrouwd door 500+ recruiters in Nederland en België

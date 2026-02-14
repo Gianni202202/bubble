@@ -2,15 +2,14 @@
 
 export default function WedgeSection() {
   return (
-    <section className="section-responsive" style={{
+    <section style={{
       background: "linear-gradient(135deg, #7aa300 0%, #8db600 50%, #1a2e05 100%)",
       padding: "100px 24px",
       position: "relative",
       overflow: "hidden",
     }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 2 }}>
-        <div className="wedge-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
-          {/* Left: headline + text */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
             <p style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
               De kloof wordt groter
@@ -41,7 +40,6 @@ export default function WedgeSection() {
             </a>
           </div>
 
-          {/* Right: visual metrics */}
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             {[
               { icon: "⚡", stat: "30x", label: "Sneller dan handmatig outreach" },
@@ -70,7 +68,6 @@ export default function WedgeSection() {
         </div>
       </div>
 
-      {/* Subtle decorative elements instead of the broken wedge */}
       <div style={{
         position: "absolute",
         top: -100,

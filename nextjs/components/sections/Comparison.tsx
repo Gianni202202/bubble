@@ -30,27 +30,53 @@ const rows = [
 
 export default function Comparison() {
   return (
-    <section id="comparison" className="section-responsive" style={{ padding: "80px 24px", background: "#fff" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        {/* Headers */}
-        <div className="comparison-header" style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, marginBottom: 32 }}>
+    <section id="comparison" className="section-padding" style={{ background: "#fff" }}>
+      <div className="section-inner">
+        {/* Header row */}
+        <div className="comparison-grid" style={{ marginBottom: 32 }}>
           <h3 style={{ fontSize: 18, fontWeight: 700, color: "#374151" }}>De oude manier</h3>
-          <div className="comparison-center" />
+          <div className="comparison-center-label" />
           <h3 style={{ fontSize: 18, fontWeight: 700, color: "#6a9a00", textAlign: "right" }}>De nieuwe manier</h3>
         </div>
 
         {/* Rows */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {rows.map((row, i) => (
-            <div key={i} className="comparison-row" style={{ display: "grid", gridTemplateColumns: "1fr 200px 1fr", gap: 16, alignItems: "stretch" }}>
-              <div className="card-old">
+            <div key={i} className="comparison-grid">
+              {/* Old card */}
+              <div style={{
+                background: "#f9fafb",
+                border: "1px solid #e5e7eb",
+                borderRadius: 16,
+                padding: "24px 20px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+              }}>
+                <div className="comparison-mobile-label">De oude manier</div>
                 <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 8, color: "#111" }}>{row.old.text}</p>
                 <p style={{ fontSize: 13, color: "#9ca3af", fontStyle: "italic" }}>{row.old.time}</p>
               </div>
-              <div className="comparison-center" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+
+              {/* Category label (center, desktop only) */}
+              <div className="comparison-center-label">
                 <span style={{ fontSize: 14, fontWeight: 600, color: "#6b7280", textAlign: "center" }}>{row.category}</span>
               </div>
-              <div className="card-new">
+
+              {/* New card — Loxo style with Elvatix green gradient */}
+              <div style={{
+                background: "linear-gradient(135deg, #8db600 0%, #6a9a00 50%, #4d7a00 100%)",
+                borderRadius: 16,
+                padding: "24px 20px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                color: "white",
+                boxShadow: "0 4px 16px rgba(141,182,0,0.25)",
+              }}>
+                <div className="comparison-mobile-label" style={{ color: "rgba(255,255,255,0.7)" }}>De nieuwe manier</div>
                 <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 8 }}>{row.new_.text}</p>
                 <p style={{ fontSize: 13, opacity: 0.8, fontStyle: "italic" }}>{row.new_.time}</p>
               </div>
