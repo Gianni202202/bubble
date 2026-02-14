@@ -1,73 +1,66 @@
+"use client";
+
+const columns = [
+  { title: "PLATFORM", links: [
+    { label: "AI Copilot", href: "/platform" },
+    { label: "InMails", href: "/features/inmails" },
+    { label: "Connectieverzoeken", href: "/features/connections" },
+    { label: "Reminders", href: "/features/reminders" },
+    { label: "Custom GPT", href: "/platform" },
+    { label: "Templates", href: "/platform" },
+    { label: "Analytics", href: "/features/analytics" },
+  ]},
+  { title: "VOOR WIE", links: [
+    { label: "Recruitmentbureaus", href: "/solutions" },
+    { label: "Detacheringsbureaus", href: "/solutions" },
+    { label: "Corporate Recruiters", href: "/solutions" },
+    { label: "Executive Search", href: "/solutions" },
+    { label: "Freelancers", href: "/solutions" },
+  ]},
+  { title: "CASE STUDIES", links: [
+    { label: "Manpower", href: "/cases" },
+    { label: "Vibe Group", href: "/cases" },
+  ]},
+  { title: "RESOURCES", links: [
+    { label: "Blog", href: "/blog" },
+    { label: "Integraties", href: "/integraties" },
+    { label: "Pricing", href: "/pricing" },
+  ]},
+  { title: "BEDRIJF", links: [
+    { label: "Over ons", href: "/over-ons" },
+    { label: "Contact", href: "/contact" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
+  ]},
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-800 text-gray-300">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
-          {/* Modules */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Modules</h3>
-            <ul className="space-y-2">
-              <li><a href="/module-inmails" className="hover:text-white transition">InMails</a></li>
-              <li><a href="/module-connectieverzoeken" className="hover:text-white transition">Connectieverzoeken</a></li>
-              <li><a href="/module-reminders" className="hover:text-white transition">Reminders</a></li>
-              <li><a href="/module-custom-gpt" className="hover:text-white transition">Custom GPT</a></li>
-              <li><a href="/module-template-instructies" className="hover:text-white transition">Template Instructies</a></li>
-              <li><a href="/module-recruitment-sales-switch" className="hover:text-white transition">Sales Switch</a></li>
-            </ul>
-          </div>
-
-          {/* Voor wie */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Voor wie</h3>
-            <ul className="space-y-2">
-              <li><a href="/voor-recruitmentbureaus" className="hover:text-white transition">Recruitmentbureaus</a></li>
-              <li><a href="/voor-detacheringsbureaus" className="hover:text-white transition">Detacheringsbureaus</a></li>
-              <li><a href="/voor-corporate-recruiters" className="hover:text-white transition">Corporate Recruiters</a></li>
-            </ul>
-            <h3 className="text-white font-semibold mt-6 mb-4">Case Studies</h3>
-            <ul className="space-y-2">
-              <li><a href="/case-study-manpower" className="hover:text-white transition">Manpower</a></li>
-              <li><a href="/case-study-vibegroup" className="hover:text-white transition">Vibe Group</a></li>
-            </ul>
-          </div>
-
-          {/* Bedrijf */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Bedrijf</h3>
-            <ul className="space-y-2">
-              <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
-              <li><a href="/blogs" className="hover:text-white transition">Blog</a></li>
-              <li><a href="/integraties-linkedin" className="hover:text-white transition">Integraties</a></li>
-            </ul>
-          </div>
-
-          {/* Legal & Social */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li><a href="/terms" className="hover:text-white transition">Terms</a></li>
-              <li><a href="/privacy" className="hover:text-white transition">Privacy</a></li>
-            </ul>
-            <h3 className="text-white font-semibold mt-6 mb-4">Volg ons</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="https://linkedin.com/in/gianni-linssen-742842315" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition"
-                >
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </div>
-
+    <footer style={{ padding: "64px 24px 32px", background: "#fff", borderTop: "1px solid #e5e7eb" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 32, marginBottom: 48 }}>
+          {columns.map((col, i) => (
+            <div key={i}>
+              <h4 style={{ fontSize: 12, fontWeight: 700, color: "#374151", letterSpacing: "0.1em", marginBottom: 16 }}>{col.title}</h4>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} style={{ fontSize: 14, color: "#6b7280", textDecoration: "none" }}>{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Elvatix. Alle rechten voorbehouden.</p>
+        <div className="footer-bottom" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #e5e7eb", paddingTop: 24 }}>
+          <div>
+            <h3 style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 4 }}>Elvatix</h3>
+            <p style={{ fontSize: 13, color: "#9ca3af" }}>© 2026 Elvatix. Alle rechten voorbehouden.</p>
+          </div>
+          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+            <a href="https://linkedin.com/company/elvatix" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "#9ca3af", textDecoration: "none" }}>LinkedIn</a>
+          </div>
         </div>
       </div>
     </footer>
