@@ -24,7 +24,7 @@ export default function Stats() {
         </AnimateOnScroll>
         <div className="grid-4">
           {items.map((s, i) => (
-            <AnimateOnScroll key={i} variant="scale" delay={0.1 * i}>
+            <AnimateOnScroll key={i} variant="scaleUp" delay={0.1 * i}>
               <motion.div
                 style={{
                   textAlign: "center",
