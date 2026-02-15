@@ -199,7 +199,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
         <div style={{ marginBottom: 20 }}>
           <p style={{ fontSize: 11, fontWeight: 700, color: "#8db600", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 8 }}>AI Recruitment Writer</p>
           <h3 style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 4 }}>Genereer een bericht</h3>
-          <p style={{ fontSize: 12, color: "#9ca3af", lineHeight: 1.5 }}>Plak een LinkedIn URL \u2014 wij schrijven een persoonlijke InMail.</p>
+          <p style={{ fontSize: 12, color: "#9ca3af", lineHeight: 1.5 }}>{"Plak een LinkedIn URL \u2014 wij schrijven een persoonlijke InMail."}</p>
         </div>
       )}
 
@@ -371,7 +371,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                   ...messageBoxStyle, maxHeight: 280, overflowY: "auto",
                 }}>
                   {inmailDisplayed || (
-                    <span style={{ color: "#d1d5db", fontStyle: "italic" }}>Bericht wordt geschreven\u2026</span>
+                    <span style={{ color: "#d1d5db", fontStyle: "italic" }}>{"Bericht wordt geschreven\u2026"}</span>
                   )}
                   {phase === "writing-inmail" && inmailDisplayed && (
                     <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
@@ -386,7 +386,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                     {phase === "done" || phase === "writing-conn" ? (
                       <>
                         {connectionDisplayed || (
-                          <span style={{ color: "#d1d5db", fontStyle: "italic" }}>Wordt opgesteld\u2026</span>
+                          <span style={{ color: "#d1d5db", fontStyle: "italic" }}>{"Wordt opgesteld\u2026"}</span>
                         )}
                         {phase === "writing-conn" && connectionDisplayed && (
                           <span style={{ color: "#8db600", animation: "lm-blink 0.7s step-end infinite" }}>|</span>
@@ -394,7 +394,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                       </>
                     ) : (
                       <span style={{ color: "#d1d5db", fontStyle: "italic" }}>
-                        Wordt na InMail gegenereerd\u2026
+                        {"Wordt na InMail gegenereerd\u2026"}
                       </span>
                     )}
                   </div>
@@ -460,7 +460,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
                     borderRadius: 8, fontWeight: 600, fontSize: 13,
                     textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0,
                   }}>
-                    Vraag demo aan \u2192
+                    {"Vraag demo aan \u2192"}
                   </a>
                 </div>
               )}
@@ -523,7 +523,7 @@ export default function LeadMagnet({ compact = false }: { compact?: boolean }) {
             Genereer een gepersonaliseerd bericht
           </h2>
           <p style={{ fontSize: 16, color: "#6b7280", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
-            Plak een LinkedIn URL \u2014 wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat.
+            {"Plak een LinkedIn URL \u2014 wij scrapen het profiel en schrijven een InMail en connectieverzoek op maat."}
           </p>
         </div>
 
