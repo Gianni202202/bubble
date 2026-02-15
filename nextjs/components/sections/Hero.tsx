@@ -24,13 +24,6 @@ export default function Hero() {
         <div className="grid-2" style={{ alignItems: "center" }}>
           {/* Left: text content */}
           <div>
-            <AnimateOnScroll variant="fadeUp" delay={0.1}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(141,182,0,0.1)", border: "1px solid rgba(141,182,0,0.2)", borderRadius: 9999, padding: "6px 16px", marginBottom: 24 }}>
-                <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#8db600", display: "inline-block", animation: "hero-pulse 2s infinite" }} />
-                <span style={{ fontSize: 13, fontWeight: 600, color: "#5a7a00" }}>#1 AI Recruitment Copilot voor LinkedIn</span>
-              </div>
-            </AnimateOnScroll>
-
             <AnimateOnScroll variant="fadeUp" delay={0.2}>
               <h1
                 style={{
