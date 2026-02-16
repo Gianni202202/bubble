@@ -7,6 +7,9 @@
   --green-dark: #7aa300;
   --green-light: #a3c520;
   --green-accent: #c5e063;
+  --linkedin-blue: #0a66c2;
+  --linkedin-blue-light: #e8f0fe;
+  --linkedin-blue-dark: #004182;
 }
 
 @theme inline {
@@ -90,6 +93,8 @@ body {
 .pill-btn-outline:hover { background: rgba(141,182,0,0.05); }
 .pill-btn-white { background: white; color: #111; border: 2px solid rgba(255,255,255,0.8); }
 .pill-btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+.pill-btn-linkedin { background: var(--linkedin-blue); color: white; border: none; }
+.pill-btn-linkedin:hover { background: var(--linkedin-blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,102,194,0.3); }
 
 /* ── Quote card ── */
 .quote-card { background: linear-gradient(135deg, #f0f7d4 0%, #fff 50%, #f0f7d4 100%); border: 3px solid var(--green-primary); border-radius: 24px; padding: 48px; }
