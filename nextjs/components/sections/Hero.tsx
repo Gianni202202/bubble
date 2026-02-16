@@ -85,6 +85,13 @@ export default function Hero() {
           <LeadMagnet compact />
         </div>
       </div>
+
+      <style>{`
+        @keyframes hero-pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(1.3); }
+        }
+      `}</style>
     </section>
   );
 }
