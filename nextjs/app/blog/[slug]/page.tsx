@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   if (!blog) return { title: 'Blog niet gevonden' };
 
   return {
-    title: `${blog['SEO title']} | Elvatix`,
+    title: blog['SEO title'] + ' | Elvatix',
     description: blog['SEO Description'],
     openGraph: {
       title: blog['SEO title'],
@@ -33,10 +33,11 @@ export async function generateStaticParams() {
   try {
     const blogs = await getAllBlogs();
     return blogs.map((blog) => ({
-      slug: blog.slug || generateSlug(blog['SEO title']),
-    }));
-  } catch {
-    return [];
+      slug: blog.slug || generateSlug(blog['SEO title'])
+    }))
+  } catch (error) {
+    console.error('Error in generateStaticParams:', error)
+    return []
   }
 }
 
@@ -50,12 +51,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
     <main className="pt-40 pb-16">
       <Container className="max-w-4xl">
         {blog.Image && (
-          <div className="aspect-video relative rounded-2xl overflow-hidden mb-8 shadow-lg">
+          <div className='aspect-video relative rounded-2xl overflow-hidden mb-8 shadow-lg'>
             <Image
               src={blog.Image}
               alt={blog['Alt text'] || blog['SEO title']}
               fill
-              className="object-cover"
+              className='object-cover'
               priority
             />
           </div>
@@ -73,7 +74,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         </header>
 
         <div
-          className="prose prose-lg max-w-none"
+          className='prose prose-lg max-w-none'
           dangerouslySetInnerHTML={{ __html: blog.Body }}
         />
 
