@@ -13,6 +13,10 @@
 }
 
 @theme inline {
+  --color-linkedin: #0a66c2;
+  --color-linkedin-dark: #004182;
+  --color-linkedin-light: #e8f0fe;
+  --radius-card: 20px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
